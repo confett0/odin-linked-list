@@ -42,6 +42,27 @@ class LinkedList {
         }
         return lastNode;
     }
+
+    at(index) {
+        let node = this.head;
+        while(--index) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    pop() {
+        let node = this.head;
+        let prevNode = null;
+        if (node) {
+            while (node.next) {
+                prevNode = node;
+                node = node.next
+            }
+        }
+
+        prevNode.next = null;
+    }
 }
 
 class Node {
