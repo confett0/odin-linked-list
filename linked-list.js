@@ -28,7 +28,7 @@ class LinkedList {
     size() {
         let currentNode = this.head;
         let counter = 0;
-        while(currentNode) {
+        while (currentNode) {
             counter++;
             currentNode = currentNode.next;
         }
@@ -41,9 +41,9 @@ class LinkedList {
 
     tail() {
         let currentNode = this.head;
-            while (currentNode && currentNode.next) {
-                currentNode = currentNode.next
-            }
+        while (currentNode && currentNode.next) {
+            currentNode = currentNode.next
+        }
         return currentNode;
     }
 
@@ -52,7 +52,7 @@ class LinkedList {
         let currentNode = this.head;
         let count = 0;
 
-        while(currentNode) {
+        while (currentNode) {
             if (count === index) {
                 return currentNode;
             }
@@ -84,7 +84,7 @@ class LinkedList {
     contains(value) {
         let currentNode = this.head;
 
-        while(currentNode) {
+        while (currentNode) {
             if (currentNode.value === value) {
                 return true;
             }
@@ -97,7 +97,7 @@ class LinkedList {
         let currentNode = this.head;
         let index = 0;
 
-        while(currentNode) {
+        while (currentNode) {
             if (currentNode.value === value) {
                 return index;
             }
@@ -112,8 +112,8 @@ class LinkedList {
         let currentNode = this.head;
 
         while (currentNode) {
-        string += `( ${currentNode.value} ) -> `;
-        currentNode = currentNode.next;
+            string += `( ${currentNode.value} ) -> `;
+            currentNode = currentNode.next;
         }
         string += "null";
         return string;
@@ -164,7 +164,7 @@ class LinkedList {
             currentNode = currentNode.next;
         }
     }
-    
+
 }
 
 class Node {
