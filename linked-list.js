@@ -107,6 +107,34 @@ class LinkedList {
         string += "null";
         return string;
     }
+
+    insertAt(value, index) {
+        let currentNode = this.head;
+        let count = 0;
+
+        while (currentNode) {
+            if (count === index - 1) {
+                const newNode = new Node(value);
+                newNode.next = currentNode.next;
+                currentNode.next = newNode;
+            }
+            count++;
+            currentNode = currentNode.next;
+        }
+    }
+
+    removeNodeAt(index) {
+        let currentNode = this.head;
+        let count = 0;
+
+        while (currentNode) {
+            if (count === index - 1) {
+                currentNode.next = currentNode.next.next;
+            }
+            count++;
+            currentNode = currentNode.next;
+        }
+    }
     
 }
 
@@ -119,7 +147,9 @@ class Node {
 
 let node1 = new Node(2)
 let node2 = new Node(5)
+let node3 = new Node(8)
 node1.next = node2
+node2.next = node3
 
 let list = new LinkedList(node1);
 
