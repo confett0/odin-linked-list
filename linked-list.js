@@ -12,6 +12,20 @@ class LinkedList {
         }
         lastNode.next = new Node(value);
     }
+
+    size() {
+        let node = this.head;
+        let counter = 0;
+        while(node) {
+            counter++;
+            node = node.next;
+        }
+        return counter;
+    }
+
+    head() {
+        return this.head;
+    }
 }
 
 class Node {
