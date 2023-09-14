@@ -5,8 +5,8 @@ class LinkedList {
 
     append(value) {
         const newNode = new Node(value);
-        if (!this.headNode) {
-            this.headNode = newNode;
+        if (!this.head) {
+            this.head = newNode;
             return;
         }
 
@@ -63,6 +63,12 @@ class LinkedList {
     }
 
     pop() {
+        if (!this.head) return 'This list is empty';
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+
         let currentNode = this.head;
         let prevNode = null;
         if (currentNode) {
@@ -114,6 +120,15 @@ class LinkedList {
     }
 
     insertAt(value, index) {
+        if (index < 0 || index > this.size()) {
+            return 'Please insert a valid index number';
+        }
+
+        if (index === 0) {
+            this.prepend(value);
+            return;
+        }
+
         let currentNode = this.head;
         let count = 0;
 
@@ -129,6 +144,15 @@ class LinkedList {
     }
 
     removeNodeAt(index) {
+        if (index < 0 || index >= this.size()) {
+            return 'Please insert a valid index number';
+        }
+
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+
         let currentNode = this.head;
         let count = 0;
 
