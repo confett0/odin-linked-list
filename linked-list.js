@@ -13,6 +13,12 @@ class LinkedList {
         lastNode.next = new Node(value);
     }
 
+    prepend(value) {
+        const newNode = new Node(value);
+        newNode.next = this.head;
+        this.head = newNode;
+    }
+
     size() {
         let node = this.head;
         let counter = 0;
