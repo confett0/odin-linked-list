@@ -44,11 +44,17 @@ class LinkedList {
     }
 
     at(index) {
-        let node = this.head;
-        while(--index) {
-            node = node.next;
+        let currentNode = this.head;
+        let count = 0;
+
+        while(currentNode) {
+            if (count === index) {
+                return currentNode;
+            }
+            count++;
+            currentNode = currentNode.next;
         }
-        return node;
+        return -1;
     }
 
     pop() {
