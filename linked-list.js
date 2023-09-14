@@ -4,13 +4,19 @@ class LinkedList {
     }
 
     append(value) {
-        let lastNode = this.head;
-        if (lastNode) {
-            while (lastNode.next) {
-                lastNode = lastNode.next
+        const newNode = new Node(value);
+        if (!this.headNode) {
+            this.headNode = newNode;
+            return;
+        }
+
+        let currentNode = this.head;
+        if (currentNode) {
+            while (currentNode.next) {
+                currentNode = currentNode.next
             }
         }
-        lastNode.next = new Node(value);
+        currentNode.next = newNode;
     }
 
     prepend(value) {
@@ -20,30 +26,29 @@ class LinkedList {
     }
 
     size() {
-        let node = this.head;
+        let currentNode = this.head;
         let counter = 0;
-        while(node) {
+        while(currentNode) {
             counter++;
-            node = node.next;
+            currentNode = currentNode.next;
         }
         return counter;
     }
 
-    head() {
+    getHead() {
         return this.head;
     }
 
     tail() {
-        let lastNode = this.head;
-        if (lastNode) {
-            while (lastNode.next) {
-                lastNode = lastNode.next
+        let currentNode = this.head;
+            while (currentNode && currentNode.next) {
+                currentNode = currentNode.next
             }
-        }
-        return lastNode;
+        return currentNode;
     }
 
     at(index) {
+        if (index < 0) return null;
         let currentNode = this.head;
         let count = 0;
 
@@ -54,16 +59,16 @@ class LinkedList {
             count++;
             currentNode = currentNode.next;
         }
-        return -1;
+        return null;
     }
 
     pop() {
-        let node = this.head;
+        let currentNode = this.head;
         let prevNode = null;
-        if (node) {
-            while (node.next) {
+        if (currentNode) {
+            while (currentNode.next) {
                 prevNode = node;
-                node = node.next
+                currentNode = currentNode.next
             }
         }
 
@@ -144,13 +149,3 @@ class Node {
         this.next = null;
     }
 }
-
-let node1 = new Node(2)
-let node2 = new Node(5)
-let node3 = new Node(8)
-node1.next = node2
-node2.next = node3
-
-let list = new LinkedList(node1);
-
-console.log(list);
